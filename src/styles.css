@@ -68,7 +68,8 @@
 
   --gradient-ink: linear-gradient(160deg, oklch(0.22 0.05 253), oklch(0.14 0.04 255));
   --gradient-primary: linear-gradient(120deg, oklch(0.52 0.15 249), oklch(0.68 0.14 232));
-  --shadow-soft: 0 1px 2px oklch(0.19 0.03 250 / 0.06), 0 12px 32px -16px oklch(0.19 0.03 250 / 0.28);
+  --shadow-soft:
+    0 1px 2px oklch(0.19 0.03 250 / 0.06), 0 12px 32px -16px oklch(0.19 0.03 250 / 0.28);
   --shadow-lift: 0 24px 60px -28px oklch(0.35 0.12 249 / 0.55);
 }
 
@@ -113,9 +114,37 @@
 
 @utility blueprint-grid {
   background-image:
-    linear-gradient(to right, color-mix(in oklab, var(--blueprint) 8%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, var(--blueprint) 8%, transparent) 1px, transparent 1px);
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--blueprint) 8%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--blueprint) 8%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 44px 44px;
+}
+
+@utility skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  z-index: 999;
+  padding: 8px 16px;
+  background: oklch(0.52 0.15 249);
+  color: oklch(0.99 0.005 240);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+@utility skip-link:focus {
+  top: 6px;
+  outline: 2px solid oklch(0.99 0.005 240);
+  outline-offset: 2px;
 }
 
 /* Reveal on scroll */
@@ -151,31 +180,60 @@
     opacity: 0;
   }
 }
-.stage-ground { animation-delay: 0s; }
-.stage-foundation { animation-delay: 0.9s; }
-.stage-columns { animation-delay: 1.8s; }
-.stage-slabs { animation-delay: 2.7s; }
-.stage-walls { animation-delay: 3.6s; }
-.stage-roof { animation-delay: 4.5s; }
-.stage-finish { animation-delay: 5.4s; }
-.stage-landscape { animation-delay: 6.3s; }
+.stage-ground {
+  animation-delay: 0s;
+}
+.stage-foundation {
+  animation-delay: 0.9s;
+}
+.stage-columns {
+  animation-delay: 1.8s;
+}
+.stage-slabs {
+  animation-delay: 2.7s;
+}
+.stage-walls {
+  animation-delay: 3.6s;
+}
+.stage-roof {
+  animation-delay: 4.5s;
+}
+.stage-finish {
+  animation-delay: 5.4s;
+}
+.stage-landscape {
+  animation-delay: 6.3s;
+}
 
 .scan-line {
   fill: color-mix(in oklab, var(--blueprint) 35%, transparent);
   animation: scan 13.5s ease-in-out infinite;
 }
 @keyframes scan {
-  0% { transform: translateY(0); opacity: 0.9; }
-  50% { transform: translateY(300px); opacity: 0.35; }
-  100% { transform: translateY(0); opacity: 0.9; }
+  0% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(300px);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
 }
 
 .crane-hook-anim {
   animation: hook 4s ease-in-out infinite alternate;
 }
 @keyframes hook {
-  from { transform: translateY(0); }
-  to { transform: translateY(48px); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(48px);
+  }
 }
 
 .dash-draw {
@@ -183,7 +241,9 @@
   animation: dash 8s linear infinite;
 }
 @keyframes dash {
-  to { stroke-dashoffset: -140; }
+  to {
+    stroke-dashoffset: -140;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -199,5 +259,7 @@
     transform: none;
     transition: none;
   }
-  html { scroll-behavior: auto; }
+  html {
+    scroll-behavior: auto;
+  }
 }

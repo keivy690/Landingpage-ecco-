@@ -88,8 +88,11 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background">
+      <a href="#main" className="skip-link">
+        Pular para o conteúdo
+      </a>
       <SiteHeader />
-      <main>
+      <main id="main">
         <Hero />
         <Services />
         <About />

@@ -56,7 +56,7 @@ export function About() {
           <a
             href={whatsappUrl()}
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="mt-8 inline-flex items-center gap-2 font-display text-sm font-semibold text-blueprint transition-colors hover:text-ink-foreground"
           >
             Converse com nossa equipe <ArrowRight size={16} />

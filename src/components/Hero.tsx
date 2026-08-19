@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, BadgeCheck, Clock, MessageCircle } from "lucide-react";
 import { ConstructionAnimation } from "./ConstructionAnimation";
 import { whatsappUrl } from "@/lib/ecco";
 import { trackWhatsAppClick } from "@/lib/analytics";
@@ -72,7 +72,7 @@ export function Hero() {
               <a
                 href={whatsappUrl()}
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 onClick={() => trackWhatsAppClick("hero")}
                 className="inline-flex items-center gap-2 rounded-md border border-white/20 px-6 py-3.5 text-sm font-semibold text-ink-foreground transition-colors hover:bg-white/5"
               >
@@ -92,6 +92,31 @@ export function Hero() {
                 </div>
               ))}
             </dl>
+
+            <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-white/10 pt-7">
+              <div className="flex items-center gap-2.5">
+                <BadgeCheck size={18} className="text-blueprint" />
+                <span className="font-display text-xs font-semibold text-ink-foreground">
+                  Registro CREA/PA
+                </span>
+              </div>
+              <div className="flex items-center gap-6 text-center">
+                <div>
+                  <p className="font-display text-2xl font-bold text-ink-foreground">5+</p>
+                  <p className="text-xs text-ink-foreground/55">Anos de experiência</p>
+                </div>
+                <div className="border-l border-white/10 pl-6">
+                  <p className="font-display text-2xl font-bold text-ink-foreground">150+</p>
+                  <p className="text-xs text-ink-foreground/55">Obras concluídas</p>
+                </div>
+                <div className="border-l border-white/10 pl-6">
+                  <Clock size={16} className="mb-1 text-accent" />
+                  <p className="font-display text-sm font-semibold text-ink-foreground">
+                    Resposta rápida
+                  </p>
+                </div>
+              </div>
+            </div>
 
             <div className="reveal is-visible mt-10 inline-flex items-center gap-3 rounded-md border border-white/10 bg-ink/60 px-4 py-3 backdrop-blur-sm">
               <span className="eyebrow text-ink-foreground/50">Etapa</span>

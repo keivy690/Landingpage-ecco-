@@ -87,7 +87,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "ECCO+ Engenharia" },
       { property: "og:locale", content: "pt_BR" },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "/favicon-512x512.png" },
+      { property: "og:image:width", content: "512" },
+      { property: "og:image:height", content: "512" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "/favicon-512x512.png" },
       { name: "theme-color", content: "#0a1a2f" },
     ],
     links: [

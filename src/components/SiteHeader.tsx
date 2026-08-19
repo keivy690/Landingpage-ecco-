@@ -25,6 +25,10 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.classList.toggle("overflow-hidden", open);
+  }, [open]);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
@@ -60,7 +64,7 @@ export function SiteHeader() {
         <a
           href={whatsappUrl()}
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           onClick={() => trackWhatsAppClick("header")}
           className="hidden rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lift)] transition-transform hover:-translate-y-0.5 md:inline-flex"
         >
@@ -93,7 +97,7 @@ export function SiteHeader() {
           <a
             href={whatsappUrl()}
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick("menu_mobile")}
             className="mt-4 block rounded-md bg-primary px-5 py-3 text-center text-sm font-semibold text-primary-foreground"
           >
