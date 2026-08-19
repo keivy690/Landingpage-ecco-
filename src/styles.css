@@ -1,0 +1,203 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-blueprint: var(--blueprint);
+  --font-display: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Blueprint navy + ECCO blue */
+  --background: oklch(0.985 0.004 240);
+  --foreground: oklch(0.19 0.03 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.19 0.03 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.19 0.03 250);
+  --primary: oklch(0.52 0.15 249);
+  --primary-foreground: oklch(0.99 0.005 240);
+  --secondary: oklch(0.95 0.012 245);
+  --secondary-foreground: oklch(0.25 0.04 250);
+  --muted: oklch(0.955 0.008 245);
+  --muted-foreground: oklch(0.52 0.025 250);
+  --accent: oklch(0.78 0.16 78);
+  --accent-foreground: oklch(0.2 0.04 60);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.012 245);
+  --input: oklch(0.9 0.012 245);
+  --ring: oklch(0.52 0.15 249);
+
+  --ink: oklch(0.19 0.045 253);
+  --ink-soft: oklch(0.26 0.05 253);
+  --ink-foreground: oklch(0.97 0.008 245);
+  --blueprint: oklch(0.72 0.13 235);
+
+  --gradient-ink: linear-gradient(160deg, oklch(0.22 0.05 253), oklch(0.14 0.04 255));
+  --gradient-primary: linear-gradient(120deg, oklch(0.52 0.15 249), oklch(0.68 0.14 232));
+  --shadow-soft: 0 1px 2px oklch(0.19 0.03 250 / 0.06), 0 12px 32px -16px oklch(0.19 0.03 250 / 0.28);
+  --shadow-lift: 0 24px 60px -28px oklch(0.35 0.12 249 / 0.55);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+}
+
+@utility surface-ink {
+  background-image: var(--gradient-ink);
+  color: var(--color-ink-foreground);
+}
+
+@utility eyebrow {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+@utility blueprint-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--blueprint) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--blueprint) 8%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Construction animation */
+.stage {
+  opacity: 0;
+  animation: stage-in 13.5s linear infinite;
+}
+@keyframes stage-in {
+  0%,
+  4% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  10%,
+  92% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.stage-ground { animation-delay: 0s; }
+.stage-foundation { animation-delay: 0.9s; }
+.stage-columns { animation-delay: 1.8s; }
+.stage-slabs { animation-delay: 2.7s; }
+.stage-walls { animation-delay: 3.6s; }
+.stage-roof { animation-delay: 4.5s; }
+.stage-finish { animation-delay: 5.4s; }
+.stage-landscape { animation-delay: 6.3s; }
+
+.scan-line {
+  fill: color-mix(in oklab, var(--blueprint) 35%, transparent);
+  animation: scan 13.5s ease-in-out infinite;
+}
+@keyframes scan {
+  0% { transform: translateY(0); opacity: 0.9; }
+  50% { transform: translateY(300px); opacity: 0.35; }
+  100% { transform: translateY(0); opacity: 0.9; }
+}
+
+.crane-hook-anim {
+  animation: hook 4s ease-in-out infinite alternate;
+}
+@keyframes hook {
+  from { transform: translateY(0); }
+  to { transform: translateY(48px); }
+}
+
+.dash-draw {
+  stroke-dasharray: 6 8;
+  animation: dash 8s linear infinite;
+}
+@keyframes dash {
+  to { stroke-dashoffset: -140; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage,
+  .scan-line,
+  .crane-hook-anim,
+  .dash-draw {
+    animation: none !important;
+    opacity: 1;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html { scroll-behavior: auto; }
+}
