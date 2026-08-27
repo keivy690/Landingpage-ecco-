@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { whatsappUrl } from "@/lib/ecco";
 import { trackWhatsAppClick } from "@/lib/analytics";
-import logoAsset from "@/assets/logo-ecco.png.asset.json";
+
 
 const links = [
   { href: "#servicos", label: "Serviços" },
@@ -40,7 +40,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-5">
         <a href="#inicio" className="flex shrink-0 items-center" aria-label="ECCO+ Engenharia">
           <img
-            src={logoAsset.url}
+            src="/logo-ecco.png"
             alt="ECCO+ Engenharia"
             className="h-9 w-auto object-contain sm:h-11 lg:h-14"
             width={400}

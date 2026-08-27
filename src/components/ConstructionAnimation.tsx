@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 export function ConstructionAnimation({
   className = "h-auto w-full",
   preserveAspectRatio,
@@ -5,8 +7,25 @@ export function ConstructionAnimation({
   className?: string;
   preserveAspectRatio?: string;
 }) {
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  useEffect(() => {
+    if (!svgRef.current || !("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          svgRef.current?.classList.toggle("paused", !entry.isIntersecting);
+        });
+      },
+      { threshold: 0.05 },
+    );
+    io.observe(svgRef.current);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <svg
+      ref={svgRef}
       viewBox="0 0 760 520"
       className={className}
       preserveAspectRatio={preserveAspectRatio}

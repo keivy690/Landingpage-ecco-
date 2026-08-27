@@ -140,11 +140,11 @@
   border-radius: 4px;
   text-decoration: none;
   transition: top 0.2s ease;
-}
-@utility skip-link:focus {
-  top: 6px;
-  outline: 2px solid oklch(0.99 0.005 240);
-  outline-offset: 2px;
+  &:focus {
+    top: 6px;
+    outline: 2px solid oklch(0.99 0.005 240);
+    outline-offset: 2px;
+  }
 }
 
 /* Reveal on scroll */
