@@ -38,11 +38,19 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-5">
-        <a href="#inicio" className="flex shrink-0 items-center" aria-label="ECCO+ Engenharia">
+        <a
+          href="#inicio"
+          className="group relative flex shrink-0 items-center rounded-md p-1 transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blueprint"
+          aria-label="ECCO+ Engenharia"
+        >
+          <span
+            className="pointer-events-none absolute -inset-1 rounded-lg bg-blueprint/20 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+            aria-hidden="true"
+          />
           <img
             src="/logo-ecco.png"
             alt="ECCO+ Engenharia"
-            className="h-9 w-auto object-contain sm:h-11 lg:h-14"
+            className="relative h-9 w-auto object-contain transition duration-300 ease-out group-hover:scale-[1.035] group-hover:drop-shadow-[0_0_9px_rgba(101,190,240,0.45)] group-focus-visible:scale-[1.035] sm:h-11 lg:h-14"
             width={400}
             height={300}
             decoding="async"
