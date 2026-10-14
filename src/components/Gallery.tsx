@@ -5,6 +5,15 @@ import aramis2 from "@/assets/clientes/aramis/aramis-02-web.jpeg";
 import aramis3 from "@/assets/clientes/aramis/aramis-03-web.jpeg";
 import aramis4 from "@/assets/clientes/aramis/aramis-04-web.jpeg";
 import aramis5 from "@/assets/clientes/aramis/aramis-05-web.jpeg";
+import aramis6 from "@/assets/clientes/aramis/aramis-06.jpeg";
+import aramis7 from "@/assets/clientes/aramis/aramis-07.jpeg";
+import aramis8 from "@/assets/clientes/aramis/aramis-08.jpeg";
+import aramis9 from "@/assets/clientes/aramis/aramis-09.jpeg";
+import aramis10 from "@/assets/clientes/aramis/aramis-10.jpeg";
+import aramis11 from "@/assets/clientes/aramis/aramis-11.jpeg";
+import aramis12 from "@/assets/clientes/aramis/aramis-12.jpeg";
+import aramis13 from "@/assets/clientes/aramis/aramis-13.jpeg";
+import aramis14 from "@/assets/clientes/aramis/aramis-14.jpeg";
 import urban1 from "@/assets/clientes/urban/urban-01.jpeg";
 import urban2 from "@/assets/clientes/urban/urban-02.jpeg";
 import urban3 from "@/assets/clientes/urban/urban-03.jpeg";
@@ -30,14 +39,23 @@ const clients: PortfolioClient[] = [
   {
     id: "aramis",
     name: "ARAMIS",
-    description: "Registros da execução de obra, infraestrutura e instalações técnicas.",
-    cover: aramis5,
+    description: "Registros da execução e da loja ARAMIS concluída.",
+    cover: aramis7,
     images: [
       { src: aramis5, alt: "Fachada da loja ARAMIS" },
       { src: aramis1, alt: "Instalação de climatização e infraestrutura na obra ARAMIS" },
       { src: aramis2, alt: "Execução da infraestrutura técnica na obra ARAMIS" },
       { src: aramis3, alt: "Equipe ECCO+ em execução na obra ARAMIS" },
       { src: aramis4, alt: "Detalhe das instalações técnicas realizadas para a ARAMIS" },
+      { src: aramis6, alt: "Ambiente interno da loja ARAMIS concluída" },
+      { src: aramis7, alt: "Fachada da loja ARAMIS concluída" },
+      { src: aramis8, alt: "Exposição de vestuário na loja ARAMIS" },
+      { src: aramis9, alt: "Acabamento e expositores da loja ARAMIS" },
+      { src: aramis10, alt: "Entrada da loja ARAMIS concluída" },
+      { src: aramis11, alt: "Corredor e provadores da loja ARAMIS" },
+      { src: aramis12, alt: "Exposição interna da loja ARAMIS" },
+      { src: aramis13, alt: "Expositor de calçados da loja ARAMIS" },
+      { src: aramis14, alt: "Exposição de roupas da loja ARAMIS" },
     ],
   },
   {
