@@ -14,6 +14,10 @@ import aramis11 from "@/assets/clientes/aramis/aramis-11.jpeg";
 import aramis12 from "@/assets/clientes/aramis/aramis-12.jpeg";
 import aramis13 from "@/assets/clientes/aramis/aramis-13.jpeg";
 import aramis14 from "@/assets/clientes/aramis/aramis-14.jpeg";
+import itCenter1 from "@/assets/clientes/it-center/it-center-01.jpeg";
+import itCenter2 from "@/assets/clientes/it-center/it-center-02.jpeg";
+import itCenter3 from "@/assets/clientes/it-center/it-center-03.jpeg";
+import itCenter4 from "@/assets/clientes/it-center/it-center-04.jpeg";
 import urban1 from "@/assets/clientes/urban/urban-01.jpeg";
 import urban2 from "@/assets/clientes/urban/urban-02.jpeg";
 import urban3 from "@/assets/clientes/urban/urban-03.jpeg";
@@ -27,7 +31,7 @@ import urbanVideo from "@/assets/clientes/urban/urban-video.mp4";
 
 type PortfolioImage = { src: string; alt: string };
 type PortfolioClient = {
-  id: "aramis" | "urban";
+  id: "aramis" | "urban" | "it-center";
   name: string;
   description: string;
   cover: string;
@@ -76,6 +80,18 @@ const clients: PortfolioClient[] = [
       { src: urban9, alt: "Exposição de produtos da loja URBAN" },
     ],
     video: { src: urbanVideo, label: "Vídeo da obra URBAN" },
+  },
+  {
+    id: "it-center",
+    name: "IT Center",
+    description: "Registros da intervenção realizada no IT Center.",
+    cover: itCenter2,
+    images: [
+      { src: itCenter1, alt: "Fachada lateral do IT Center" },
+      { src: itCenter2, alt: "Fachada principal do IT Center" },
+      { src: itCenter3, alt: "Área externa do IT Center" },
+      { src: itCenter4, alt: "Instalações externas do IT Center" },
+    ],
   },
 ];
 
